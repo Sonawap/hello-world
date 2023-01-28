@@ -21,8 +21,16 @@ Route::group(['prefix' => 'v1'], function() {
         return $request->user();
     });
 
+    Route::group(['middleware' => 'auth:sanctum'], function() {
+
+        Route::get('/user', [AuthController::class, 'user']);
+
+    });
+
     Route::group(['prefix' => 'auth'], function() {
+
         Route::post('register', [AuthController::class, 'store']);
         Route::post('login', [AuthController::class, 'login']);
+
     });
 });

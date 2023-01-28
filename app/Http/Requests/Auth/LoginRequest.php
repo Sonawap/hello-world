@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
@@ -32,7 +32,6 @@ class LoginRequest extends FormRequest
         return [
             'email' => 'required|email',
             'password' => 'required|string',
-            // 'loginDevice' => 'required'
         ];
     }
 
@@ -40,7 +39,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'email.required' => 'Email is required',
-            'email.email' => 'Email must be a vaild email address',
+            'email.email' => 'Email must be a valid email address',
             'password.required' => 'Password is required',
         ];
     }

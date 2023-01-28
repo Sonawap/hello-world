@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -27,7 +27,9 @@ class CreateUser extends FormRequest
     {
         return [
             'email' => 'required|unique:users',
-            'password' => 'required|min:6|alpha_num'
+            'password' => 'required|min:6|alpha_num',
+            'last_name' => 'required|string',
+            'first_name' => 'required|string',
         ];
     }
 
